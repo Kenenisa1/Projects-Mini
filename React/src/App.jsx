@@ -1,11 +1,16 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const List=[
+    {name: "Mac" , IsmyPc: false, id: 1},
+    {name: "Windonws" , Ismypc: true, id: 2},
+    {name: "Linux" , Ismypc: false, id: 3}
+  ]
+const OsList=List.map(item => 
+       <li key={item.id} style={{
+        color: item.IsmyPc ? "Green": "blue"
+       }}> {item.name} {item.IsmyPc}</li>
+    )
   return (
     <>
       <div>
@@ -13,6 +18,9 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+      <ul>
+          {OsList}
+      </ul>
     </>
   )
 }
